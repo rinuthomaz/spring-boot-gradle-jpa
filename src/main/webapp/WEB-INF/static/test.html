@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="myApp">
+	<head>
+		<title>Hello AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    	<script src="./../js/hello.js"></script>
+	</head>
+
+	<body>
+	
+	<div ng-controller="MyCtrl">
+    <table>
+        <tr>
+            <th ng-repeat="(key, val) in getSites[0]">{{key}}</th>
+        </tr>
+        <tr ng-repeat="item in getSites">
+            <td ng-repeat="(key, val) in item">{{val}}</td>
+        </tr>
+    </table>
+<!-- </div>
+		<div ng-controller="Hello">
+			<p>The ID is {{checkout.equipmentId}}</p>
+			<p>The resourceId is {{checkout.resourceId}}</p>
+			<p>The assignedBy is {{checkout.assignedBy}}</p>
+		</div> -->
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    
+  </head>
+  <body>
+   <h1> DEI  </h1>
+
+    <a href="#/">dei |</a>
+    <a href="#/blog"> Check-out |</a>
+    <a href="#/about"> Report</a>
+     <a href="#/sample"> Report</a>
+
+    <div ng-view></div>
+    <div ng-controller="Hello">
+			<p>The ID is {{greeting.id}}</p>
+			<p>The content is {{greeting.content}}</p>
+		</div>
+<script src="./../js/app.js"></script>
+   
+  </body>
+</html>

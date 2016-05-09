@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
+    }
+}
+apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+
+
+repositories {
+    mavenCentral()
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+   
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+dependencies {
+
+compile("org.springframework.boot:spring-boot-starter-data-jpa")
+
+     compile("org.springframework.boot:spring-boot-starter-web")
+     //below 3 lines added newly- inform Ashokan
+     compile("commons-beanutils:commons-beanutils")
+     compile("ch.qos.logback:logback-classic")
+     compile("ch.qos.logback:logback-core")
+     
+     
+     	{
+		exclude module: 'spring-boot-starter-tomcat'
+		}
+		
+	 compile files('src/test/resources/ojdbc6.jar')
+	
+	providedCompile 'org.apache.tomcat.embed:tomcat-embed-core'
+	//providedCompile 'org.apache.tomcat.embed:tomcat-juli'
+	//providedCompile 'org.apache.tomcat.embed:tomcat-jdbc'
+	providedCompile 'org.apache.tomcat.embed:tomcat-embed-websocket'
+	//providedCompile 'org.apache.tomcat.embed:tomcat-embed-logging-juli'
+	//providedCompile 'org.apache.tomcat.embed:tomcat-embed-el'
+		
+    //tag::actuator[]
+    //compile("org.springframework.boot:spring-boot-starter-actuator")
+      
+      testCompile("org.springframework.boot:spring-boot-starter-test")
+    //end::actuator[]
+    //tag::tests[]
+    //end::tests[]
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
